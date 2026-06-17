@@ -99,7 +99,7 @@ class NSFrozenLakeV0(Env):
 
     metadata = {'render.modes': ['human', 'ansi']}
 
-    def __init__(self, desc=None, map_name="4x4", map_size=(5,5), is_slippery=True, intended_prob=0.4):
+    def __init__(self, desc=None, map_name="4x4", map_size=(5,5), is_slippery=True, intended_prob=0.7):
         if desc is None and map_name is None:
             raise ValueError('Must provide either desc or map_name')
         elif desc is None:

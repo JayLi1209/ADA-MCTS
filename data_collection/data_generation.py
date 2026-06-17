@@ -7,7 +7,7 @@ import random
 class RLExperienceCollector:
     def __init__(self, env_name, model_class, transition_number=1000):
         self.env = gym.make(env_name)
-        self.task = model_class(intended_prob=0.4)
+        self.task = model_class(intended_prob=0.7) # congruent with the paper
         self.transition_number = transition_number
         self.exp_buffer = []
         self.state_list = []
@@ -44,7 +44,7 @@ class RLExperienceCollector:
                     next_state, reward, done, _ = self.task.step(action)
                     self.episode_buffer_bnn.append(
                         np.reshape(np.array([self.__encode_state(state), self.__encode_action(action),
-                                             reward, next_state, 0]), [1, 5]))
+                                             reward, next_state, 0], dtype=object), [1, 5]))
 
         exp_list = np.reshape(self.episode_buffer_bnn, [-1, 5])
         self.exp_buffer.extend(exp_list)
