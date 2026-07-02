@@ -5,9 +5,11 @@ import random
 
 
 class RLExperienceCollector:
-    def __init__(self, env_name, model_class, transition_number=1000):
+    def __init__(self, env_name, model_class, transition_number=1000, train_theta=0.7):
         self.env = gym.make(env_name)
-        self.task = model_class(intended_prob=0.7) # congruent with the paper
+        # train_theta = intended_prob of the *training* (MDP0) environment.
+        # Use 1.0 for a stationary (deterministic, non-slippery) env; 0.7 matches the paper.
+        self.task = model_class(intended_prob=train_theta)
         self.transition_number = transition_number
         self.exp_buffer = []
         self.state_list = []
@@ -57,10 +59,17 @@ class RLExperienceCollector:
 
 # Usage Example
 if __name__ == "__main__":
+    import argparse
     from nsfrozenlake.nsfrozenlake_v0 import NSFrozenLakeV0
     # Alternatively, import your custom model class
     # from nsbridge_simulator.nsbridge_v0 import NSBridgeV0
 
-    collector = RLExperienceCollector(env_name="FrozenLake-v1", model_class=NSFrozenLakeV0)
+    parser = argparse.ArgumentParser(description="Collect MDP0 pretraining experiences")
+    parser.add_argument("--theta", type=float, default=0.7,
+                        help="training intended_prob (1.0 = stationary/deterministic env)")
+    args = parser.parse_args()
+
+    collector = RLExperienceCollector(env_name="FrozenLake-v1", model_class=NSFrozenLakeV0,
+                                      train_theta=args.theta)
     collector.collect_experiences()
     collector.save_experiences('data_buffer/frozenlake_exp_buffer.pkl')

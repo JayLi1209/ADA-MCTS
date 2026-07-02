@@ -99,7 +99,8 @@ class NSFrozenLakeV0(Env):
 
     metadata = {'render.modes': ['human', 'ansi']}
 
-    def __init__(self, desc=None, map_name="4x4", map_size=(5,5), is_slippery=True, intended_prob=0.7):
+    def __init__(self, desc=None, map_name="4x4", map_size=(5,5), is_slippery=True, intended_prob=0.7,
+                 intended_prob_schedule=None):
         if desc is None and map_name is None:
             raise ValueError('Must provide either desc or map_name')
         elif desc is None:
@@ -120,7 +121,13 @@ class NSFrozenLakeV0(Env):
         self.L_r = 0.0
         self.num_actions = 4
         self.intended_prob = intended_prob
+        # Optional time-varying schedule for intended_prob: a list of
+        # (time, intended_prob) pairs, e.g. [(0, 1.0), (5, 0.9), (10, 0.8)].
+        # The value in effect at step self.t is the prob of the latest threshold
+        # that is <= self.t (so the listed time is when the change takes effect).
+        self.intended_prob_schedule = intended_prob_schedule
         self.T = self.generate_transition_matrix()
+        self._build_schedule_matrices()
         isd = np.array(self.desc == b'S').astype('float64').ravel() # Initial state distribution
         self.isd = isd / isd.sum()
         #self._seed()
@@ -486,6 +493,39 @@ class NSFrozenLakeV0(Env):
                     T[s, a, t, :] = np.asarray([0 if x == 0 else wcopy.pop() for x in rs], dtype=float)
         return T
 
+    def _build_schedule_matrices(self):
+        """
+        Pre-compute one transition matrix per distinct intended_prob appearing in
+        self.intended_prob_schedule, so stepping can switch between them cheaply.
+        Does nothing (leaves self.T_schedule = None) when no schedule is set.
+        """
+        self.T_schedule = None
+        if not self.intended_prob_schedule:
+            return
+        # Sort breakpoints by their activation time.
+        self.intended_prob_schedule = sorted(self.intended_prob_schedule, key=lambda x: x[0])
+        self.T_schedule = {}
+        for _, p in self.intended_prob_schedule:
+            if p not in self.T_schedule:
+                self.T_schedule[p] = self.generate_transition_matrix_parse(p)
+
+    def set_intended_prob_schedule(self, schedule):
+        """(Re)configure the time-varying intended_prob schedule and rebuild matrices."""
+        self.intended_prob_schedule = schedule
+        self._build_schedule_matrices()
+
+    def current_intended_prob(self):
+        """Return the intended_prob in effect at the current step counter self.t."""
+        if not self.intended_prob_schedule:
+            return self.intended_prob
+        prob = self.intended_prob_schedule[0][1]
+        for t_thresh, p in self.intended_prob_schedule:
+            if self.t >= t_thresh:
+                prob = p
+            else:
+                break
+        return prob
+
     def transition_probability_distribution(self, s, t, a):
         assert s.index < self.nS, 'Error: index bigger than nS: s.index={} nS={}'.format(s.index, self.nS)
         assert t < self.nT, 'Error: time bigger than nT: t={} nT={}'.format(t, self.nT)
@@ -540,7 +580,12 @@ class NSFrozenLakeV0(Env):
         #print("transition check down", s.index, a, s.time, self.transition_probability_distribution(s, s.time, 1))
         #print("transition check right", s.index, a, s.time, self.transition_probability_distribution(s, s.time, 2))
         #print("transition check up", s.index, a, s.time, self.transition_probability_distribution(s, s.time, 3))
-        d = self.transition_probability_distribution(s, s.time, a)
+        if self.T_schedule is not None:
+            # Time-varying dynamics: pick the matrix whose intended_prob is active
+            # at the current step counter self.t.
+            d = self.T_schedule[self.current_intended_prob()][s.index, a, s.time]
+        else:
+            d = self.transition_probability_distribution(s, s.time, a)
         p_p = categorical_sample(d, self.np_random)
         if is_model_dynamic:
             s_p = State(p_p, s.time + self.tau)

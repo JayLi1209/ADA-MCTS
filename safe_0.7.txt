@@ -1,0 +1,93 @@
+/home/yli113/.conda/envs/nsgym/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/yli113/.conda/envs/nsgym/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+==================================================================
+ ADA-MCTS  --  FrozenLake goal-completion experiment
+==================================================================
+ Environment       : Non-Stationary FrozenLake (4x4)
+ Map layout        :
+        S F F F
+        F H F H
+        F F F H
+        H F F G
+        (S=start  F=frozen/safe  H=hole  G=goal)
+ Grid cells        : 16  (4 holes)
+------------------------------------------------------------------
+ THETA (hidden dynamics parameter)
+   intended_prob   : 0.70  -> P(agent moves in intended direction)
+   slip_prob       : 0.30  -> split over the perpendicular cells
+   latent_code     : 1     -> non-stationary time slice at reset
+------------------------------------------------------------------
+ Reward structure  : +1 reach Goal | -1 fall in Hole | 0 otherwise
+ Goal 'completion' : episode whose terminal cell is G (reward +1)
+------------------------------------------------------------------
+ Planner           : ADA-MCTS
+   pretrained MDP0 : models/frozenlake_*_weights_itr_2
+   MCTS iterations : 5000 per decision
+   training_started: False
+   danger (pessim.): False
+ Episodes          : 50
+==================================================================
+
+ Running episodes...
+   ep   1 | seed 1000 | GOAL     | steps  23 | return +0.802 | 75.0s
+   ep   2 | seed 1001 | GOAL     | steps  88 | return +0.417 | 279.3s
+   ep   3 | seed 1002 | GOAL     | steps  72 | return +0.490 | 233.9s
+   ep   4 | seed 1003 | GOAL     | steps  36 | return +0.703 | 110.6s
+   ep   5 | seed 1004 | TIMEOUT  | steps 100 | return +0.000 | 325.1s
+   ep   6 | seed 1005 | TIMEOUT  | steps 100 | return +0.000 | 323.5s
+   ep   7 | seed 1006 | GOAL     | steps  20 | return +0.826 | 63.0s
+   ep   8 | seed 1007 | TIMEOUT  | steps 100 | return +0.000 | 302.0s
+   ep   9 | seed 1008 | GOAL     | steps  72 | return +0.490 | 233.1s
+   ep  10 | seed 1009 | GOAL     | steps  57 | return +0.570 | 184.1s
+   ep  11 | seed 1010 | TIMEOUT  | steps 100 | return +0.000 | 321.9s
+   ep  12 | seed 1011 | GOAL     | steps  41 | return +0.669 | 140.3s
+   ep  13 | seed 1012 | GOAL     | steps  34 | return +0.718 | 101.4s
+   ep  14 | seed 1013 | GOAL     | steps  63 | return +0.536 | 203.0s
+   ep  15 | seed 1014 | GOAL     | steps  48 | return +0.624 | 147.8s
+   ep  16 | seed 1015 | GOAL     | steps  80 | return +0.452 | 253.0s
+   ep  17 | seed 1016 | GOAL     | steps  66 | return +0.520 | 200.8s
+   ep  18 | seed 1017 | GOAL     | steps  29 | return +0.755 | 95.6s
+   ep  19 | seed 1018 | TIMEOUT  | steps 100 | return +0.000 | 314.6s
+   ep  20 | seed 1019 | TIMEOUT  | steps 100 | return +0.000 | 307.5s
+   ep  21 | seed 1020 | TIMEOUT  | steps 100 | return +0.000 | 322.1s
+   ep  22 | seed 1021 | TIMEOUT  | steps 100 | return +0.000 | 321.1s
+   ep  23 | seed 1022 | TIMEOUT  | steps 100 | return +0.000 | 304.1s
+   ep  24 | seed 1023 | TIMEOUT  | steps 100 | return +0.000 | 314.7s
+   ep  25 | seed 1024 | GOAL     | steps  97 | return +0.381 | 289.2s
+   ep  26 | seed 1025 | TIMEOUT  | steps 100 | return +0.000 | 318.8s
+   ep  27 | seed 1026 | GOAL     | steps  29 | return +0.755 | 94.2s
+   ep  28 | seed 1027 | GOAL     | steps  23 | return +0.802 | 78.0s
+   ep  29 | seed 1028 | GOAL     | steps  22 | return +0.810 | 72.8s
+   ep  30 | seed 1029 | GOAL     | steps  59 | return +0.558 | 185.6s
+   ep  31 | seed 1030 | GOAL     | steps  26 | return +0.778 | 86.1s
+   ep  32 | seed 1031 | GOAL     | steps  76 | return +0.471 | 238.2s
+   ep  33 | seed 1032 | TIMEOUT  | steps 100 | return +0.000 | 321.2s
+   ep  34 | seed 1033 | TIMEOUT  | steps 100 | return +0.000 | 309.4s
+   ep  35 | seed 1034 | GOAL     | steps  96 | return +0.385 | 308.2s
+   ep  36 | seed 1035 | GOAL     | steps  71 | return +0.495 | 221.7s
+   ep  37 | seed 1036 | GOAL     | steps  97 | return +0.381 | 298.5s
+   ep  38 | seed 1037 | GOAL     | steps  31 | return +0.740 | 92.6s
+   ep  39 | seed 1038 | GOAL     | steps  39 | return +0.683 | 121.5s
+   ep  40 | seed 1039 | TIMEOUT  | steps 100 | return +0.000 | 323.3s
+   ep  41 | seed 1040 | GOAL     | steps  49 | return +0.617 | 147.5s
+   ep  42 | seed 1041 | TIMEOUT  | steps 100 | return +0.000 | 315.8s
+   ep  43 | seed 1042 | GOAL     | steps  21 | return +0.818 | 71.6s
+   ep  44 | seed 1043 | GOAL     | steps  58 | return +0.564 | 189.0s
+   ep  45 | seed 1044 | TIMEOUT  | steps 100 | return +0.000 | 313.8s
+   ep  46 | seed 1045 | TIMEOUT  | steps 100 | return +0.000 | 327.8s
+   ep  47 | seed 1046 | GOAL     | steps  32 | return +0.732 | 103.0s
+   ep  48 | seed 1047 | TIMEOUT  | steps 100 | return +0.000 | 303.5s
+   ep  49 | seed 1048 | TIMEOUT  | steps 100 | return +0.000 | 338.5s
+   ep  50 | seed 1049 | HOLE     | steps  28 | return -0.762 | 88.7s
+
+==================================================================
+ RESULTS  (theta = intended_prob = 0.70, 50 episodes)
+------------------------------------------------------------------
+   Goal completion rate :  60.0%   (30/50)
+   Hole / failure rate  :   2.0%   (1/50)
+   Timeout rate         :  38.0%   (19/50)
+   Mean steps/episode   :   69.7
+   Mean discounted ret. : +0.356
+==================================================================
