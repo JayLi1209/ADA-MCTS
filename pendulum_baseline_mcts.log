@@ -1,0 +1,16 @@
+================================================================================
+MCTS (oracle dynamics) baseline | mass_schedule=[(0, 1.0), (80, 3.0)] | trials=20
+  MCTS iterations=500 | actions=5 | rollout_horizon=10
+================================================================================
+TRIAL 1: return=-124.4 | time=49.7s
+TRIAL 2: return=-0.8 | time=50.4s
+TRIAL 3: return=-118.2 | time=50.9s
+TRIAL 4: return=-353.6 | time=49.4s
+TRIAL 5: return=-488.4 | time=48.8s
+TRIAL 6: return=-234.8 | time=49.0s
+TRIAL 7: return=-0.9 | time=48.5s
+TRIAL 8: return=-122.8 | time=48.7s
+TRIAL 9: return=-121.8 | time=49.6s
+TRIAL 10: return=-233.7 | time=48.3s
+TRIAL 11: return=-420.7 | time=48.0s
+TRIAL 12: return=-234.8 | time=47.9s
