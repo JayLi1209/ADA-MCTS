@@ -32,10 +32,10 @@ CHANGE_STEPS = [80]
 N_TRIALS = 20
 TRIAL_LEN = 100
 
-N_ACTIONS = 5
+N_ACTIONS = 7
 TORQUES = np.linspace(-2.0, 2.0, N_ACTIONS, dtype=np.float32)
-MCTS_SIMS = 80
-ROLLOUT_H = 4
+MCTS_SIMS = 200
+ROLLOUT_H = 8
 CP = math.sqrt(2.0)
 GAMMA = 0.99
 

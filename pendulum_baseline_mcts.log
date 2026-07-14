@@ -1,16 +1,68 @@
-================================================================================
-MCTS (oracle dynamics) baseline | mass_schedule=[(0, 1.0), (80, 3.0)] | trials=20
-  MCTS iterations=500 | actions=5 | rollout_horizon=10
-================================================================================
-TRIAL 1: return=-124.4 | time=49.7s
-TRIAL 2: return=-0.8 | time=50.4s
-TRIAL 3: return=-118.2 | time=50.9s
-TRIAL 4: return=-353.6 | time=49.4s
-TRIAL 5: return=-488.4 | time=48.8s
-TRIAL 6: return=-234.8 | time=49.0s
-TRIAL 7: return=-0.9 | time=48.5s
-TRIAL 8: return=-122.8 | time=48.7s
-TRIAL 9: return=-121.8 | time=49.6s
-TRIAL 10: return=-233.7 | time=48.3s
-TRIAL 11: return=-420.7 | time=48.0s
-TRIAL 12: return=-234.8 | time=47.9s
+Loaded pretrained latent BNN (frozen trunk) from /home/guo/Adapt/data/pendulum_ada
+============================================================
+ADA-MCTS (latent=5) on Pendulum | N_act=5 | sims=80
+  mass_schedule=[(0, 1.0), (80, 3.0)] | 20 trials x 100 steps
+============================================================
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0431 -0.0336 -0.0879  0.0185]
+TRIAL 1: return=-370.3  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0468 -0.0356 -0.088   0.021 ]
+TRIAL 2: return=-554.3  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1198  0.0444 -0.0362 -0.0879  0.0176]
+TRIAL 3: return=-509.6  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1199  0.0441 -0.033  -0.088   0.0173]
+TRIAL 4: return=-586.2  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0457 -0.037  -0.088   0.0174]
+TRIAL 5: return=-584.2  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0468 -0.0357 -0.0879  0.0178]
+TRIAL 6: return=-572.5  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0467 -0.033  -0.0879  0.021 ]
+TRIAL 7: return=-585.2  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0443 -0.0363 -0.0879  0.0187]
+TRIAL 8: return=-694.9  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0453 -0.033  -0.0881  0.0173]
+TRIAL 9: return=-469.5  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1237  0.0456 -0.037  -0.0892  0.0187]
+TRIAL 10: return=-797.5  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0432 -0.0336 -0.0879  0.0211]
+TRIAL 11: return=-647.8  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0442 -0.0331 -0.088   0.0188]
+TRIAL 12: return=-487.8  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.12    0.0437 -0.0361 -0.0879  0.0171]
+TRIAL 13: return=-495.2  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0439 -0.0332 -0.0879  0.0177]
+TRIAL 14: return=-691.9  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1236  0.0429 -0.037  -0.0918  0.0211]
+TRIAL 15: return=-756.0  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0463 -0.033  -0.0879  0.0176]
+TRIAL 16: return=-685.4  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0445 -0.0331 -0.0879  0.0186]
+TRIAL 17: return=-697.3  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.044  -0.0345 -0.0879  0.0211]
+TRIAL 18: return=-541.1  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.1197  0.0469 -0.0369 -0.0879  0.0171]
+TRIAL 19: return=-691.2  (18s)
+  [CHANGE] t=80: mass=3.0, latent=[ 0.122  0.045 -0.035 -0.09   0.019]
+  [FT] t=94: n_buf=15 latent=[ 0.12    0.0433 -0.0365 -0.0879  0.021 ]
+TRIAL 20: return=-534.7  (18s)
+
+RESULTS: avg=-597.6 std=105.1
+  min=-797.5 max=-370.3
