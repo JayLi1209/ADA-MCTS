@@ -1,3 +1,18 @@
 2025-08-12 18:47:53,153 - INFO - Discounted Return, Count
 2025-08-12 18:47:53,153 - INFO - Final Reward for Seed 2: 1.0
 2025-08-12 18:47:53,153 - INFO - Final Reward for Seed 3: 1.0
+2026-06-17 10:26:34,710 - INFO - Discounted Return, Count
+2026-06-17 10:26:34,710 - INFO - Final Reward for Seed 2: 1.0
+2026-06-17 10:26:34,710 - INFO - Final Reward for Seed 3: 1.0
+2026-06-17 21:00:33,566 - INFO - FrozenLake completion | theta=0.70 | episodes=3 | goal_rate=0.667 | hole_rate=0.333 | timeout_rate=0.000 | mean_steps=28.0 | mean_return=0.270
+2026-06-18 00:12:21,169 - INFO - FrozenLake completion | theta=0.70 | episodes=50 | goal_rate=0.600 | hole_rate=0.020 | timeout_rate=0.380 | mean_steps=69.7 | mean_return=0.356
+2026-06-18 13:19:56,068 - INFO - FrozenLake completion | theta=0.70 | episodes=30 | goal_rate=0.600 | hole_rate=0.400 | timeout_rate=0.000 | mean_steps=6.8 | mean_return=0.169
+2026-06-18 13:57:46,802 - INFO - FrozenLake completion | theta=0.70 | episodes=20 | goal_rate=1.000 | hole_rate=0.000 | timeout_rate=0.000 | mean_steps=6.6 | mean_return=0.945
+2026-06-18 15:59:28,938 - INFO - FrozenLake completion | theta=0.70 | episodes=20 | goal_rate=0.350 | hole_rate=0.650 | timeout_rate=0.000 | mean_steps=5.3 | mean_return=-0.303
+2026-06-19 12:37:36,579 - INFO - FrozenLake completion | theta=0.70 | episodes=20 | goal_rate=0.900 | hole_rate=0.100 | timeout_rate=0.000 | mean_steps=8.0 | mean_return=0.742
+2026-06-19 13:23:29,190 - INFO - FrozenLake completion | theta=0.70 | episodes=20 | goal_rate=0.400 | hole_rate=0.600 | timeout_rate=0.000 | mean_steps=6.1 | mean_return=-0.208
+2026-06-30 10:52:51,998 - INFO - FrozenLake completion | theta=0.70 | episodes=5 | goal_rate=0.400 | hole_rate=0.600 | timeout_rate=0.000 | mean_steps=5.8 | mean_return=-0.215
+2026-06-30 11:12:06,423 - INFO - FrozenLake completion | theta=0.70 | episodes=3 | goal_rate=0.333 | hole_rate=0.667 | timeout_rate=0.000 | mean_steps=8.3 | mean_return=-0.326
+2026-06-30 12:05:17,554 - INFO - FrozenLake completion | theta=0.70 | episodes=100 | goal_rate=0.510 | hole_rate=0.490 | timeout_rate=0.000 | mean_steps=6.7 | mean_return=-0.004
+2026-06-30 12:07:13,040 - INFO - FrozenLake completion | theta=0.70 | episodes=100 | goal_rate=0.480 | hole_rate=0.520 | timeout_rate=0.000 | mean_steps=6.1 | mean_return=-0.062
+2026-06-30 12:24:32,463 - INFO - FrozenLake completion | theta=0.70 | episodes=100 | goal_rate=0.430 | hole_rate=0.570 | timeout_rate=0.000 | mean_steps=7.3 | mean_return=-0.149

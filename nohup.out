@@ -1,0 +1,125 @@
+/home/yli113/.conda/envs/nsgym/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/yli113/.conda/envs/nsgym/lib/python3.10/site-packages/numpy/_core/_methods.py:145: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+==================================================================
+ ADA-MCTS  --  FrozenLake goal-completion experiment
+==================================================================
+ Environment       : Non-Stationary FrozenLake (4x4)
+ Map layout        :
+        S F F F
+        F H F H
+        F F F H
+        H F F G
+        (S=start  F=frozen/safe  H=hole  G=goal)
+ Grid cells        : 16  (4 holes)
+------------------------------------------------------------------
+ THETA (hidden dynamics parameter)
+   intended_prob   : time-varying (non-stationary)
+       steps 0-2   : intended_prob 1.00 | slip_prob 0.00
+       step >= 3   : intended_prob 0.70 | slip_prob 0.30
+   latent_code     : 1     -> non-stationary time slice at reset
+------------------------------------------------------------------
+ Reward structure  : +1 reach Goal | -1 fall in Hole | 0 otherwise
+ Goal 'completion' : episode whose terminal cell is G (reward +1)
+------------------------------------------------------------------
+ Planner           : ADA-MCTS
+   pretrained MDP0 : models/frozenlake_*_weights_itr_2
+   MCTS iterations : 5000 per decision
+   training_started: True
+   danger (pessim.): False
+ Episodes          : 20
+==================================================================
+
+ Running episodes...
+   ep   1 | seed 1000 | GOAL     | steps  12 | return +0.895 | 48.2s
+   ep   2 | seed 1001 | HOLE     | steps   7 | return -0.941 | 38.7s
+   ep   3 | seed 1002 | GOAL     | steps   8 | return +0.932 | 38.7s
+   ep   4 | seed 1003 | GOAL     | steps   8 | return +0.932 | 42.7s
+   ep   5 | seed 1004 | GOAL     | steps   9 | return +0.923 | 50.0s
+   ep   6 | seed 1005 | HOLE     | steps   4 | return -0.970 | 24.7s
+   ep   7 | seed 1006 | GOAL     | steps   7 | return +0.941 | 38.4s
+   ep   8 | seed 1007 | GOAL     | steps  14 | return +0.878 | 68.7s
+   ep   9 | seed 1008 | GOAL     | steps  10 | return +0.914 | 40.3s
+   ep  10 | seed 1009 | GOAL     | steps   6 | return +0.951 | 32.4s
+   ep  11 | seed 1010 | GOAL     | steps   9 | return +0.923 | 48.9s
+   ep  12 | seed 1011 | GOAL     | steps   6 | return +0.951 | 31.4s
+   ep  13 | seed 1012 | GOAL     | steps   6 | return +0.951 | 29.8s
+   ep  14 | seed 1013 | GOAL     | steps  12 | return +0.895 | 65.4s
+   ep  15 | seed 1014 | GOAL     | steps   6 | return +0.951 | 34.4s
+   ep  16 | seed 1015 | GOAL     | steps   6 | return +0.951 | 27.6s
+   ep  17 | seed 1016 | GOAL     | steps   6 | return +0.951 | 26.5s
+   ep  18 | seed 1017 | GOAL     | steps   6 | return +0.951 | 34.9s
+   ep  19 | seed 1018 | GOAL     | steps   6 | return +0.951 | 26.5s
+   ep  20 | seed 1019 | GOAL     | steps  11 | return +0.904 | 44.5s
+
+==================================================================
+ RESULTS  (theta = intended_prob = 0.70, 20 episodes)
+------------------------------------------------------------------
+   Goal completion rate :  90.0%   (18/20)
+   Hole / failure rate  :  10.0%   (2/20)
+   Timeout rate         :   0.0%   (0/20)
+   Mean steps/episode   :    8.0
+   Mean discounted ret. : +0.742
+==================================================================
+
+above Change: at timestep 3, chang it 0.7
+below: at timestep 0, chang it 0.7==================================================================
+ ADA-MCTS  --  FrozenLake goal-completion experiment
+==================================================================
+ Environment       : Non-Stationary FrozenLake (4x4)
+ Map layout        :
+        S F F F
+        F H F H
+        F F F H
+        H F F G
+        (S=start  F=frozen/safe  H=hole  G=goal)
+ Grid cells        : 16  (4 holes)
+------------------------------------------------------------------
+ THETA (hidden dynamics parameter)
+   intended_prob   : time-varying (non-stationary)
+       step >= 0   : intended_prob 0.70 | slip_prob 0.30
+   latent_code     : 1     -> non-stationary time slice at reset
+------------------------------------------------------------------
+ Reward structure  : +1 reach Goal | -1 fall in Hole | 0 otherwise
+ Goal 'completion' : episode whose terminal cell is G (reward +1)
+------------------------------------------------------------------
+ Planner           : ADA-MCTS
+   pretrained MDP0 : models/frozenlake_*_weights_itr_2
+   MCTS iterations : 5000 per decision
+   training_started: True
+   danger (pessim.): False
+ Episodes          : 20
+==================================================================
+
+ Running episodes...
+   ep   1 | seed 1000 | HOLE     | steps   4 | return -0.970 | 21.3s
+   ep   2 | seed 1001 | HOLE     | steps   4 | return -0.970 | 23.6s
+   ep   3 | seed 1002 | GOAL     | steps   8 | return +0.932 | 37.8s
+   ep   4 | seed 1003 | HOLE     | steps   4 | return -0.970 | 24.6s
+   ep   5 | seed 1004 | HOLE     | steps   3 | return -0.980 | 19.0s
+   ep   6 | seed 1005 | HOLE     | steps   6 | return -0.951 | 35.4s
+   ep   7 | seed 1006 | GOAL     | steps   9 | return +0.923 | 48.0s
+   ep   8 | seed 1007 | HOLE     | steps  11 | return -0.904 | 60.0s
+   ep   9 | seed 1008 | HOLE     | steps   2 | return -0.990 | 11.8s
+   ep  10 | seed 1009 | GOAL     | steps  11 | return +0.904 | 58.3s
+   ep  11 | seed 1010 | GOAL     | steps   8 | return +0.932 | 41.9s
+   ep  12 | seed 1011 | GOAL     | steps   8 | return +0.932 | 44.2s
+   ep  13 | seed 1012 | HOLE     | steps   2 | return -0.990 | 12.2s
+   ep  14 | seed 1013 | HOLE     | steps   3 | return -0.980 | 19.5s
+   ep  15 | seed 1014 | HOLE     | steps   5 | return -0.961 | 30.2s
+   ep  16 | seed 1015 | HOLE     | steps   5 | return -0.961 | 28.0s
+   ep  17 | seed 1016 | GOAL     | steps   6 | return +0.951 | 26.1s
+   ep  18 | seed 1017 | GOAL     | steps   6 | return +0.951 | 34.1s
+   ep  19 | seed 1018 | GOAL     | steps  12 | return +0.895 | 51.7s
+   ep  20 | seed 1019 | HOLE     | steps   5 | return -0.961 | 30.2s
+
+==================================================================
+ RESULTS  (theta = intended_prob = 0.70, 20 episodes)
+------------------------------------------------------------------
+   Goal completion rate :  40.0%   (8/20)
+   Hole / failure rate  :  60.0%   (12/20)
+   Timeout rate         :   0.0%   (0/20)
+   Mean steps/episode   :    6.1
+   Mean discounted ret. : -0.208
+==================================================================

@@ -49,7 +49,7 @@ def run_task(seed, domain, network_weights1, latent_weights1, bnn_hidden_layer_s
         mcts_instance.search(5000)
         best_action = mcts_instance.best_action()
         next_state, reward, done, _ = task.step(best_action)
-        episode_buffer_bnn.append(np.reshape(np.array([task.observe(), __encode_action(best_action), reward, next_state, 0]), [1, 5]))
+        episode_buffer_bnn.append(np.reshape(np.array([task.observe(), __encode_action(best_action), reward, next_state, 0], dtype=object), [1, 5]))
         if len(episode_buffer_bnn) >= 50 and len(episode_buffer_bnn) % 5 == 0:
             exp_list = np.reshape(episode_buffer_bnn, [-1, 5])
             with open('data_buffer/{}_{}_exp_buffer'.format(domain, seed), 'wb') as f:
